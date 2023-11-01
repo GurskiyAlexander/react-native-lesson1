@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { getCharacters } from '../../get-characters'
+import { CharacterModel } from '../../../components/characters-list/characters-list'
 
 export const useCharacters = () => {
-  const [characters, setCharacters] = useState([])
-  const [error, setError] = useState(null)
+  const [characters, setCharacters] = useState<CharacterModel[]>([])
+  const [error, setError] = useState<Error | null>(null)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
