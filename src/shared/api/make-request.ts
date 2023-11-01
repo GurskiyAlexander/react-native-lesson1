@@ -1,13 +1,17 @@
 import { BASE_PATH, defaultErrorMessage } from './consts'
 
-export const makeRequest = async (
+type Props = {
+  endpointUrl: string;
+  basePath?: string;
+}
+
+export const makeRequest = async ({
   endpointUrl,
-  options,
   basePath = BASE_PATH,
-) => {
+}: Props) => {
   const url = `${basePath}/${endpointUrl}`
 
-  const response = await fetch(url, options)
+  const response = await fetch(url)
 
   const body = await response.json()
 
